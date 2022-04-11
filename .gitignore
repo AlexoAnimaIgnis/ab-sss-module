@@ -25,3 +25,4 @@ hs_err_pid*
 /SocialSecuritySystem.iml
 /.mvn/
 /.idea/
+target/
