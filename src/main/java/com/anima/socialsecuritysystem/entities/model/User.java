@@ -3,12 +3,10 @@ package com.anima.socialsecuritysystem.entities.model;
 import com.anima.socialsecuritysystem.entities.BaseModel;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -19,9 +17,11 @@ public class User extends BaseModel<String> implements Serializable {
     private static final long serialVersionUID = 5438544613984280218L;
 
     @Id
-    @Column(name="SSS_ID")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
+    @Column(name="SSS_ID")
+    private String sssID;
     @Column
     private String firstname;
     @Column
@@ -36,6 +36,8 @@ public class User extends BaseModel<String> implements Serializable {
     private String contactNumber;
     @Column
     private String email;
+    @OneToMany
+    private List<Address> addresses;
 
 
     public Long getId() {
@@ -90,6 +92,8 @@ public class User extends BaseModel<String> implements Serializable {
     public int hashCode() {
         return Objects.hash(id, firstname, middlename, lastname, suffix, dateOfBirth, contactNumber, email);
     }
+
+
 
     @Override
     public boolean equals(Object o) {

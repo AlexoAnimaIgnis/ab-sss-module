@@ -2,10 +2,7 @@ package com.anima.socialsecuritysystem.entities.model;
 
 import com.anima.socialsecuritysystem.entities.BaseModel;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -26,6 +23,8 @@ public class Address extends BaseModel<String> implements Serializable {
     private String address_city;
     @Column
     private int postal_code;
+    @ManyToOne
+    private User user;
 
     public void setId(Long id) {
         this.id = id;
