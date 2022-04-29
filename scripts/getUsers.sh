@@ -1,1 +1,1 @@
-curl -u buzz:infinity http://localhost:8000/users
+curl -u buzz:infinity http://localhost:8000/api/users
